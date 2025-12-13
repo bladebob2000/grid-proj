@@ -3,6 +3,7 @@
 <head>
   <title>The Ethics of Dark Humor</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -10,118 +11,96 @@
   <header>
     <h1>Is Dark Humor Morally Permissible?</h1>
     <p class="subtitle">
-      Explore the question through different ethical frameworks
+      Exploring moral judgment through competing ethical frameworks
     </p>
   </header>
 
   <nav>
-    <button onclick="showSection('mill')">Utilitarianism</button>
-    <button onclick="showSection('kant')">Kantian Ethics</button>
-    <button onclick="showSection('subjectivism')">Subjectivism</button>
-    <button onclick="showSection('psych')">Psychology</button>
-    <button onclick="showSection('defense')">Defense of Dark Humor</button>
+    <a href="#mill">Utilitarianism</a>
+    <a href="#kant">Kant</a>
+    <a href="#subjectivism">Subjectivism</a>
+    <a href="#psych">Psychology</a>
+    <a href="#defense">Defense</a>
   </nav>
 
   <main>
 
-    <section id="mill" class="content">
+    <section id="mill" class="panel utilitarianism">
       <h2>Utilitarianism — John Stuart Mill</h2>
-      <p class="citation">
-        Mill, John Stuart. <em>Utilitarianism.</em> 1863.
-      </p>
+      <p class="citation">Mill, John Stuart. <em>Utilitarianism.</em> 1863.</p>
       <p>
-        From a utilitarian perspective, morality depends on consequences,
-        specifically how much happiness or suffering an action produces.
-        Dark humor can be morally acceptable if it creates more amusement,
-        relief, or connection than harm. However, when jokes cause clear
-        emotional pain or reduce overall well-being, they become morally
-        wrong. This framework judges dark humor by its real-world effects,
-        not by whether it appears offensive at first glance.
+        Utilitarianism judges morality by consequences, specifically the balance
+        of happiness over suffering. From this perspective, dark humor can be
+        morally acceptable when it creates more amusement, relief, or social
+        connection than harm. However, when jokes produce emotional pain or reduce
+        overall well-being, they become morally impermissible. This framework
+        evaluates dark humor by its real-world effects rather than surface
+        offensiveness.
       </p>
     </section>
 
-    <section id="kant" class="content">
+    <section id="kant" class="panel kant">
       <h2>Kantian Ethics — Dignity & Respect</h2>
       <p class="citation">
         Johnson, Robert, and Adam Cureton. <em>Stanford Encyclopedia of Philosophy.</em>
       </p>
       <p>
-        Kantian ethics focuses on respect for autonomy and human dignity.
-        Actions are moral only if they treat people as ends in themselves,
-        not as objects or tools. Dark humor that dehumanizes or exploits
-        others for laughter would be morally impermissible. However, humor
-        that does not demean individuals and could be universalized may
-        align with Kant’s moral principles.
+        Kantian ethics emphasizes autonomy and human dignity. Actions are moral
+        only if they treat individuals as ends in themselves rather than as
+        objects or tools. Dark humor that dehumanizes or exploits others for
+        laughter would violate Kant’s principles. Humor that respects autonomy
+        and could be universalized may be morally permissible.
       </p>
     </section>
 
-    <section id="subjectivism" class="content">
+    <section id="subjectivism" class="panel subjectivism">
       <h2>Ethical Subjectivism — James Rachels</h2>
       <p class="citation">
         Rachels, James. “Subjectivism in Ethics.” Purdue University.
       </p>
       <p>
-        Ethical Subjectivism claims that moral judgments are expressions of
-        personal feelings rather than objective facts. Applied to dark
-        humor, this means a joke is morally acceptable if the individual
-        finds it acceptable. However, Rachels criticizes this view by
-        showing that it cannot explain genuine moral disagreement or
-        provide reasons for moral criticism. This highlights the limits
-        of judging dark humor solely by personal reaction.
+        Ethical Subjectivism holds that moral judgments reflect personal feelings
+        rather than objective facts. Applied to dark humor, this suggests that a
+        joke is morally acceptable if an individual feels comfortable with it.
+        However, Rachels critiques this theory by showing that it cannot explain
+        genuine moral disagreement or justify moral reasoning, revealing the
+        limits of purely subjective evaluation.
       </p>
     </section>
 
-    <section id="psych" class="content">
+    <section id="psych" class="panel psychology">
       <h2>Psychology — Dark Humor & Moral Judgment</h2>
       <p class="citation">
         Brigaud, Emmanuelle, and Nathalie Blanc. National Library of Medicine.
       </p>
       <p>
-        Psychological research shows that dark humor can reduce emotional
-        resistance to morally difficult actions by making violations feel
-        less serious. While this can help people cope with stress, it also
-        raises ethical concerns when humor encourages harmful attitudes.
-        This evidence suggests that dark humor is morally risky when it
-        dulls moral sensitivity.
+        Psychological research suggests that dark humor can reduce emotional
+        resistance to morally difficult actions by making violations feel less
+        severe. While this can help individuals cope with stress, it also raises
+        ethical concerns when humor dulls moral sensitivity. These findings
+        suggest that dark humor carries moral risk when it normalizes harm.
       </p>
     </section>
 
-    <section id="defense" class="content">
+    <section id="defense" class="panel defense">
       <h2>In Defense of Dark Humor</h2>
       <p class="citation">
         Bills, Rebekah. <em>Providence.</em>
       </p>
       <p>
-        Dark humor can serve as a coping mechanism in disturbing or morally
-        challenging situations. Rather than trivializing suffering, it can
-        help people confront harsh realities without emotional collapse.
-        When used to foster awareness, resilience, or solidarity, dark
-        humor may be morally permissible and even valuable.
+        Dark humor can function as a coping mechanism in disturbing or morally
+        complex situations. Rather than trivializing suffering, it can help
+        individuals confront harsh realities without emotional collapse. When
+        used to foster awareness, resilience, or solidarity, dark humor may be
+        morally permissible and even valuable.
       </p>
     </section>
 
   </main>
 
   <footer>
-    <p>Select a framework to explore how morality changes.</p>
+    <p>Scroll through each framework to see how moral judgment shifts.</p>
   </footer>
-
-<script>
-  function showSection(id) {
-    var sections = document.getElementsByClassName("content");
-    for (var i = 0; i < sections.length; i++) {
-      sections[i].style.display = "none";
-    }
-
-    var buttons = document.getElementsByTagName("button");
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].classList.remove("active");
-    }
-
-    document.getElementById(id).style.display = "block";
-    event.target.classList.add("active");
-  }
-</script>
 
 </body>
 </html>
