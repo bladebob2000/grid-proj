@@ -106,15 +106,22 @@
     <p>Select a framework to explore how morality changes.</p>
   </footer>
 
-  <script>
-    function showSection(id) {
-      var sections = document.getElementsByClassName("content");
-      for (var i = 0; i < sections.length; i++) {
-        sections[i].style.display = "none";
-      }
-      document.getElementById(id).style.display = "block";
+<script>
+  function showSection(id) {
+    var sections = document.getElementsByClassName("content");
+    for (var i = 0; i < sections.length; i++) {
+      sections[i].style.display = "none";
     }
-  </script>
+
+    var buttons = document.getElementsByTagName("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove("active");
+    }
+
+    document.getElementById(id).style.display = "block";
+    event.target.classList.add("active");
+  }
+</script>
 
 </body>
 </html>
