@@ -1,11 +1,20 @@
+/* style.css */
 html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --color-text: #f3f3f7;
+  --color-subtle: #c9c9e8;
+  --color-dark-bg: #0b0b12;
+  --color-primary-link: #8a8af8; /* New accent color for flair */
+}
+
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #1a1a2e, #0b0b12);
-  color: #f3f3f7;
+  /* Smoother, deeper radial gradient */
+  background: radial-gradient(circle at top, #1a1a2e 0%, #0b0b12 80%);
+  color: var(--color-text);
   font-family: "Inter", sans-serif;
 }
 
@@ -18,13 +27,14 @@ header {
 
 h1 {
   font-family: "Playfair Display", serif;
-  font-size: 3.4rem;
-  margin-bottom: 12px;
+  font-size: 3.8rem; /* Slightly larger */
+  margin-bottom: 15px;
+  letter-spacing: -0.02em; /* Tighter letter spacing for display font */
 }
 
 .subtitle {
-  font-size: 1.15rem;
-  color: #c9c9e8;
+  font-size: 1.25rem; /* Larger */
+  color: var(--color-subtle);
 }
 
 /* ---------- NAV ---------- */
@@ -32,28 +42,30 @@ h1 {
 nav {
   position: sticky;
   top: 0;
-  background: rgba(10, 10, 20, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(10, 10, 20, 0.95); /* Higher opacity for sticky nav */
+  backdrop-filter: blur(12px); /* Stronger blur effect */
   display: flex;
   justify-content: center;
   gap: 18px;
   padding: 18px;
   z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Shadow for depth */
 }
 
 nav a {
-  color: #ffffff;
+  color: var(--color-text);
   text-decoration: none;
   font-size: 0.9rem;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 nav a:hover {
-  background: rgba(255, 255, 255, 0.18);
-  transform: translateY(-1px);
+  background: rgba(138, 138, 248, 0.2); /* Hover color tied to accent */
+  transform: translateY(-2px); /* More pronounced lift */
+  box-shadow: 0 4px 10px rgba(138, 138, 248, 0.3); /* Subtle glow on hover */
 }
 
 /* ---------- SECTIONS ---------- */
@@ -67,40 +79,62 @@ main {
   margin: 140px 20px;
   padding: 60px;
   border-radius: 24px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+  transition: all 0.4s ease-out; /* Transition for hover/focus */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* More visible border */
+}
+
+.panel:hover {
+  transform: translateY(-5px); /* Noticeable lift on hover */
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9);
 }
 
 .panel h2 {
   font-family: "Playfair Display", serif;
-  font-size: 2.2rem;
+  font-size: 2.6rem; /* Larger title */
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15); /* Clearer separator */
+  display: inline-block;
+  color: #ffffff;
+}
+
+/* Typographic Polish for Main Content */
+main p {
+  line-height: 1.75; /* Excellent line spacing for reading */
+  max-width: 750px; /* Slightly wider lines */
+  margin: 0 auto 25px; /* Spacing below paragraphs */
 }
 
 .citation {
-  font-size: 0.85rem;
-  opacity: 0.75;
-  margin-bottom: 25px;
+  font-style: italic; /* Visually distinct citation */
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 40px;
+  text-align: center; /* Center citation */
 }
 
 /* ---------- COLOR THEMES ---------- */
+/* Using complementary dark tones */
 
 .utilitarianism {
-  background: linear-gradient(160deg, #2a2a72, #1f1f3a);
+  background: linear-gradient(160deg, #1f2a40, #121825); /* Deep Blue */
 }
 
 .kant {
-  background: linear-gradient(160deg, #3a1f3a, #241024);
+  background: linear-gradient(160deg, #301f40, #1d1225); /* Deep Violet */
 }
 
 .subjectivism {
-  background: linear-gradient(160deg, #1f3a3a, #102424);
+  background: linear-gradient(160deg, #1f4032, #12251c); /* Deep Emerald */
 }
 
 .psychology {
-  background: linear-gradient(160deg, #3a2f1f, #241a10);
+  background: linear-gradient(160deg, #40301f, #251d12); /* Deep Amber */
 }
 
 .defense {
-  background: linear-gradient(160deg, #2f3a1f, #1a2410);
+  background: linear-gradient(160deg, #2a401f, #182512); /* Deep Olive */
 }
 
 /* ---------- FOOTER ---------- */
@@ -108,6 +142,58 @@ main {
 footer {
   text-align: center;
   padding: 80px 20px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #9a9ab5;
+}
+
+footer p:first-child {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--color-primary-link);
+}
+
+/* --- RESPONSIVENESS (Mobile-First Polish) --- */
+@media (max-width: 768px) {
+  header {
+    padding: 80px 10px 60px;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
+  }
+  nav a {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .panel {
+    margin: 80px 15px;
+    padding: 30px 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border: none; /* Remove border on small screens */
+  }
+
+  .panel:hover {
+    transform: none; /* Disable lift on mobile touch */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .panel h2 {
+    font-size: 1.8rem;
+    display: block; /* Full width separator on mobile */
+  }
+  
+  main p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
 }
