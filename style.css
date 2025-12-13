@@ -3,197 +3,234 @@ html {
   scroll-behavior: smooth;
 }
 
+/* --- THEME COLORS --- */
 :root {
-  --color-text: #f3f3f7;
-  --color-subtle: #c9c9e8;
-  --color-dark-bg: #0b0b12;
-  --color-primary-link: #8a8af8; /* New accent color for flair */
+  --color-dark-bg: #030419; /* Deeper, more saturated blue-black background */
+  --color-text-main: #f0f0ff;
+  --color-text-subtle: #a0a0c0;
+
+  /* NEW VIBRANT ACCENT COLOR */
+  --color-accent-vibrant: #4affff; /* Electric Cyan */
+  --color-accent-pink: #f06292; /* Vibrant Pink for contrast */
 }
 
 body {
   margin: 0;
-  /* Smoother, deeper radial gradient */
-  background: radial-gradient(circle at top, #1a1a2e 0%, #0b0b12 80%);
-  color: var(--color-text);
+  /* Complex radial gradient for a high-energy background */
+  background: radial-gradient(circle at top, #111133 0%, var(--color-dark-bg) 70%);
+  color: var(--color-text-main);
   font-family: "Inter", sans-serif;
 }
 
-/* ---------- HEADER ---------- */
+/* ---------- HEADER (Made more impactful) ---------- */
 
 header {
-  padding: 120px 20px 80px;
+  padding: 150px 20px 100px; /* More vertical space */
   text-align: center;
 }
 
 h1 {
   font-family: "Playfair Display", serif;
-  font-size: 3.8rem; /* Slightly larger */
+  font-size: 4.5rem; /* Massive title */
   margin-bottom: 15px;
-  letter-spacing: -0.02em; /* Tighter letter spacing for display font */
+  letter-spacing: -0.04em;
+  /* Neon text effect */
+  text-shadow: 0 0 10px rgba(74, 255, 255, 0.5), 0 0 20px rgba(74, 255, 255, 0.3);
 }
 
 .subtitle {
-  font-size: 1.25rem; /* Larger */
-  color: var(--color-subtle);
+  font-size: 1.35rem;
+  color: var(--color-accent-pink); /* Using pink for subtitle contrast */
+  font-weight: 500;
 }
 
-/* ---------- NAV ---------- */
+/* ---------- NAV (High contrast and sticky) ---------- */
 
 nav {
   position: sticky;
   top: 0;
-  background: rgba(10, 10, 20, 0.95); /* Higher opacity for sticky nav */
-  backdrop-filter: blur(12px); /* Stronger blur effect */
+  background: rgba(3, 4, 25, 0.98); /* Near-opaque dark background */
+  backdrop-filter: blur(15px); /* Stronger blur */
   display: flex;
   justify-content: center;
-  gap: 18px;
-  padding: 18px;
+  gap: 25px; /* Larger gap */
+  padding: 20px;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid var(--color-accent-vibrant); /* Accent border */
 }
 
 nav a {
-  color: var(--color-text);
+  color: var(--color-text-main);
   text-decoration: none;
-  font-size: 0.9rem;
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  font-size: 1rem; /* Slightly larger links */
+  padding: 10px 18px;
+  border-radius: 6px; /* Squarer links */
+  background: transparent;
+  border: 1px solid rgba(74, 255, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  background: rgba(138, 138, 248, 0.2); /* Hover color tied to accent */
-  transform: translateY(-2px); /* More pronounced lift */
-  box-shadow: 0 4px 10px rgba(138, 138, 248, 0.3); /* Subtle glow on hover */
+  background: rgba(74, 255, 255, 0.15); /* Light cyan fill on hover */
+  transform: scale(1.05); /* Zoom effect */
+  color: var(--color-accent-vibrant);
+  box-shadow: 0 0 15px rgba(74, 255, 255, 0.5); /* Glowing effect */
 }
 
-/* ---------- SECTIONS ---------- */
+/* ---------- SECTIONS (Unconventional Grid Layout) ---------- */
 
 main {
-  max-width: 900px;
+  max-width: 1400px; /* Allow panels to spread out more */
   margin: auto;
+  padding: 0 10px;
+  /* Use CSS Grid for unconventional spacing */
+  display: grid;
+  grid-template-columns: 1fr; /* Default single column */
 }
 
 .panel {
-  margin: 140px 20px;
-  padding: 60px;
-  border-radius: 24px;
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7); /* Stronger shadow */
-  transition: all 0.4s ease-out; /* Transition for hover/focus */
-  border: 1px solid rgba(255, 255, 255, 0.08); /* More visible border */
+  /* Panels are now full width, but their internal padding is large */
+  margin: 80px 40px; /* Reduced vertical margin, increased horizontal */
+  padding: 80px; /* Large internal padding */
+  border-radius: 18px; /* Slightly less rounded */
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden; /* For pseudo-elements */
 }
 
+/* Unconventional Hover/Lift Effect */
 .panel:hover {
-  transform: translateY(-5px); /* Noticeable lift on hover */
-  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9);
+  transform: translateY(-8px) rotateZ(-0.5deg); /* Slight rotation on hover */
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 1), 0 0 25px var(--color-accent-vibrant); /* Cyan glow */
 }
 
 .panel h2 {
   font-family: "Playfair Display", serif;
-  font-size: 2.6rem; /* Larger title */
-  margin-bottom: 30px;
+  font-size: 3rem; /* Very large title */
+  margin-bottom: 40px;
   padding-bottom: 15px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.15); /* Clearer separator */
+  border-bottom: 3px solid var(--color-accent-pink); /* Pink separator */
   display: inline-block;
   color: #ffffff;
 }
 
-/* Typographic Polish for Main Content */
 main p {
-  line-height: 1.75; /* Excellent line spacing for reading */
-  max-width: 750px; /* Slightly wider lines */
-  margin: 0 auto 25px; /* Spacing below paragraphs */
+  line-height: 1.8;
+  max-width: 850px; /* Wider text block */
+  margin: 0 auto 30px;
+  font-size: 1.1rem; /* Slightly larger body text */
 }
 
 .citation {
-  font-style: italic; /* Visually distinct citation */
+  font-style: italic;
   font-size: 0.9rem;
-  opacity: 0.7;
+  opacity: 0.6;
   margin-bottom: 40px;
-  text-align: center; /* Center citation */
+  color: var(--color-accent-vibrant); /* Cyan citation text */
+  text-align: left; /* Align citation left */
 }
 
-/* ---------- COLOR THEMES ---------- */
-/* Using complementary dark tones */
+/* --- COLOR THEMES (New, more dramatic gradients) --- */
 
 .utilitarianism {
-  background: linear-gradient(160deg, #1f2a40, #121825); /* Deep Blue */
+  background: linear-gradient(145deg, #1f2a40, #0a111f);
 }
 
 .kant {
-  background: linear-gradient(160deg, #301f40, #1d1225); /* Deep Violet */
+  background: linear-gradient(145deg, #301f40, #130a1f);
 }
 
 .subjectivism {
-  background: linear-gradient(160deg, #1f4032, #12251c); /* Deep Emerald */
+  background: linear-gradient(145deg, #1f4032, #0a1f18);
 }
 
 .psychology {
-  background: linear-gradient(160deg, #40301f, #251d12); /* Deep Amber */
+  background: linear-gradient(145deg, #40301f, #1f140a);
 }
 
 .defense {
-  background: linear-gradient(160deg, #2a401f, #182512); /* Deep Olive */
+  background: linear-gradient(145deg, #2a401f, #111f0a);
 }
 
-/* ---------- FOOTER ---------- */
+/* --- FOOTER --- */
 
 footer {
   text-align: center;
-  padding: 80px 20px;
-  font-size: 0.95rem;
-  color: #9a9ab5;
+  padding: 100px 20px;
+  font-size: 1.1rem;
+  color: var(--color-accent-pink);
 }
 
 footer p:first-child {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: var(--color-primary-link);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--color-accent-vibrant);
 }
 
-/* --- RESPONSIVENESS (Mobile-First Polish) --- */
+/* --- RESPONSIVENESS (Adds unconventional layout on desktop) --- */
+
+@media (min-width: 1200px) {
+  /* Unconventional Layout: Every other panel shifts position */
+  .panel:nth-child(odd) {
+    grid-column: 1 / span 1;
+    margin-right: 100px;
+    /* Move odd panels to the left edge visually */
+  }
+
+  .panel:nth-child(even) {
+    grid-column: 2 / span 1;
+    margin-left: 100px;
+    /* Move even panels to the right edge visually */
+  }
+
+  main {
+    display: grid;
+    /* Create two columns, allowing panels to shift left/right */
+    grid-template-columns: 1fr 1fr;
+    max-width: 1600px; /* Even wider layout */
+  }
+}
+
 @media (max-width: 768px) {
   header {
-    padding: 80px 10px 60px;
+    padding: 60px 10px 40px;
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
   .subtitle {
     font-size: 1.1rem;
   }
 
   nav {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 12px;
+    gap: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
   }
   nav a {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     padding: 6px 10px;
+    flex-grow: 1; /* Allow links to fill space better */
+    text-align: center;
+    border: none;
+    background: rgba(74, 255, 255, 0.05);
   }
 
   .panel {
-    margin: 80px 15px;
+    margin: 50px 10px;
     padding: 30px 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    border: none; /* Remove border on small screens */
-  }
-
-  .panel:hover {
-    transform: none; /* Disable lift on mobile touch */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-  }
-
-  .panel h2 {
-    font-size: 1.8rem;
-    display: block; /* Full width separator on mobile */
+    transform: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border: none;
   }
   
-  main p {
-    line-height: 1.6;
+  .panel h2 {
+    font-size: 2rem;
+    display: block;
     margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-accent-pink);
   }
-
 }
