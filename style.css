@@ -2,188 +2,335 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --bg: #0b0b12;
+  --panel: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.10);
+  --text: #f2f2f7;
+  --muted: #cfd1e6;
+
+  --util: #4f6cff;
+  --kant: #7a3cff;
+  --subj: #2f8f6b;
+  --psych: #c48a2a;
+  --def: #b5b5c7;
+  --verdict: #9aa0ff;
+}
+
 body {
   margin: 0;
-  background: #0b0b12;
-  color: #f2f2f7;
-  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
   line-height: 1.7;
 }
 
-/* ---------- HERO ---------- */
-
-.hero-section {
-  min-height: 100vh;
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 120px 20px;
+  justify-content: space-between;
+  padding: 18px 28px;
+  background: rgba(11, 11, 18, 0.55);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.brandDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffffff, var(--verdict));
+  box-shadow: 0 0 18px rgba(154,160,255,0.35);
+}
+
+.brandText {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  opacity: 0.95;
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  transition: transform 0.18s, background 0.18s, color 0.18s, box-shadow 0.18s, border-color 0.18s;
+}
+
+.navLink:hover {
+  transform: translateY(-1px);
+}
+
+.nav-util:hover {
+  background: var(--util);
+  border-color: var(--util);
+  box-shadow: 0 0 24px rgba(79,108,255,0.35);
+}
+
+.nav-kant:hover {
+  background: var(--kant);
+  border-color: var(--kant);
+  box-shadow: 0 0 24px rgba(122,60,255,0.35);
+}
+
+.nav-subj:hover {
+  background: var(--subj);
+  border-color: var(--subj);
+  box-shadow: 0 0 24px rgba(47,143,107,0.35);
+}
+
+.nav-psych:hover {
+  background: var(--psych);
+  border-color: var(--psych);
+  box-shadow: 0 0 24px rgba(196,138,42,0.35);
+  color: #0b0b12;
+}
+
+.nav-defense:hover {
+  background: var(--def);
+  border-color: var(--def);
+  box-shadow: 0 0 24px rgba(181,181,199,0.35);
+  color: #0b0b12;
+}
+
+.nav-verdict:hover {
+  background: var(--verdict);
+  border-color: var(--verdict);
+  box-shadow: 0 0 24px rgba(154,160,255,0.35);
+}
+
+.hero-section {
+  padding: 140px 20px 80px;
   text-align: center;
-  background: linear-gradient(180deg, #1a1a1f, #0b0b12 65%);
+  background: radial-gradient(circle at top, #1a1a2a, #0b0b12 65%);
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
 .accent-label {
-  color: #9aa0ff;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 600;
+  margin: 0 0 18px;
   font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--verdict);
 }
 
 h1 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 3.8rem;
-  margin: 25px 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 3.6rem;
+  margin: 0 0 16px;
   background: linear-gradient(90deg, #ffffff, #c7c7d9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
-  color: #cfd1e6;
-  margin-bottom: 50px;
+  margin: 0 auto 28px;
+  max-width: 720px;
+  font-size: 1.15rem;
+  color: var(--muted);
 }
 
 .cta-button {
   display: inline-block;
-  padding: 16px 36px;
+  padding: 14px 28px;
   border-radius: 999px;
-  background: #ffffff;
-  color: #000;
-  font-weight: 600;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: var(--text);
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+  font-weight: 600;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.14);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35);
 }
-
-/* ---------- NAV ---------- */
-
-.sticky-nav {
-  position: sticky;
-  top: 16px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  padding: 20px;
-  z-index: 10;
-}
-
-.sticky-nav a {
-  padding: 10px 22px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
-  backdrop-filter: blur(10px);
-  transition: all 0.25s;
-}
-
-.nav-util:hover { background: #4f6cff; }
-.nav-kant:hover { background: #7a3cff; }
-.nav-subj:hover { background: #2f8f6b; }
-.nav-psych:hover { background: #c48a2a; color: #000; }
-.nav-defense:hover { background: #b5b5c7; color: #000; }
-
-/* ---------- MAIN STACK ---------- */
 
 .stack {
-  max-width: 900px;
-  margin: auto;
-  padding: 120px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 20px 120px;
 }
-
-/* ---------- CARDS ---------- */
 
 .card {
   position: relative;
-  border-radius: 36px;
-  padding: 70px;
-  margin-bottom: 120px;
-  background: rgba(255,255,255,0.04);
-  box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+  border-radius: 34px;
+  padding: 56px;
+  margin-bottom: 80px;
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 34px 90px rgba(0,0,0,0.55);
+  overflow: hidden;
 }
 
 .card::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  border-radius: 36px 0 0 36px;
+  top: 18px;
+  left: 18px;
+  width: 10px;
+  height: calc(100% - 36px);
+  border-radius: 999px;
+  opacity: 0.95;
 }
+
+.utilitarianism { --accent: var(--util); }
+.kant { --accent: var(--kant); }
+.subjectivism { --accent: var(--subj); }
+.psychology { --accent: var(--psych); }
+.defense { --accent: var(--def); }
+
+.utilitarianism::before,
+.kant::before,
+.subjectivism::before,
+.psychology::before,
+.defense::before {
+  background: var(--accent);
+  box-shadow: 0 0 26px rgba(255,255,255,0.10);
+}
+
+.cardLayout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.cardLeft {
+  flex: 1;
+  min-width: 0;
+  padding-left: 18px;
+}
+
+.cardRight {
+  width: 360px;
+  flex: 0 0 auto;
+}
+
+.visualSlot {
+  width: 100%;
+  height: 240px;
+  border-radius: 26px;
+  border: 1px dashed rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.55);
+  font-weight: 600;
+}
+
+.utilitarianism .visualSlot { border-color: rgba(79,108,255,0.45); }
+.kant .visualSlot { border-color: rgba(122,60,255,0.45); }
+.subjectivism .visualSlot { border-color: rgba(47,143,107,0.45); }
+.psychology .visualSlot { border-color: rgba(196,138,42,0.50); }
+.defense .visualSlot { border-color: rgba(181,181,199,0.55); }
 
 .tag {
   font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
-  opacity: 0.85;
+  color: rgba(255,255,255,0.72);
 }
 
 .card h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.6rem;
-  margin: 12px 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.4rem;
+  margin: 10px 0 8px;
 }
 
 .citation {
-  opacity: 0.7;
+  opacity: 0.75;
   font-style: italic;
-  margin-bottom: 30px;
+  margin: 0 0 22px;
+  color: rgba(255,255,255,0.75);
 }
 
-/* ---------- SECTION COLORS ---------- */
-
-.utilitarianism::before { background: #4f6cff; }
-.kant::before { background: #7a3cff; }
-.subjectivism::before { background: #2f8f6b; }
-.psychology::before { background: #c48a2a; }
-.defense::before { background: #b5b5c7; }
-
-/* ---------- VERDICT ---------- */
-
 .verdict-section {
-  text-align: center;
-  padding: 100px 60px;
-  border-radius: 50px;
+  border-radius: 44px;
+  padding: 80px 60px;
   background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(154,160,255,0.20);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.55);
+  text-align: center;
 }
 
 .verdict-section h2 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 3rem;
+  margin: 0 0 16px;
 }
 
 .verdict-section p {
-  max-width: 700px;
-  margin: 20px auto;
-  font-size: 1.15rem;
+  max-width: 820px;
+  margin: 16px auto 0;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.88);
 }
-
-/* ---------- FOOTER ---------- */
 
 footer {
   text-align: center;
-  padding: 60px;
+  padding: 50px 20px;
   opacity: 0.6;
 }
 
-/* ---------- MOBILE ---------- */
+@media (max-width: 980px) {
+  .cardLayout {
+    flex-direction: column;
+  }
+
+  .cardRight {
+    width: 100%;
+  }
+
+  .visualSlot {
+    height: 220px;
+  }
+}
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+  }
+
+  .topbar {
+    padding: 14px 16px;
+  }
+
+  .navLink {
+    padding: 8px 12px;
+    font-size: 0.85rem;
   }
 
   .card {
