@@ -4,12 +4,13 @@ html {
 
 body {
   margin: 0;
-  background: #050510;
-  color: #ffffff;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  background: #0b0b12;
+  color: #f2f2f7;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.7;
 }
 
-/* ---------------- HERO ---------------- */
+/* ---------- HERO ---------- */
 
 .hero-section {
   min-height: 100vh;
@@ -18,7 +19,7 @@ body {
   justify-content: center;
   padding: 120px 20px;
   text-align: center;
-  background: radial-gradient(circle at top, #1a1aff, #050510 65%);
+  background: linear-gradient(180deg, #1a1a1f, #0b0b12 65%);
 }
 
 .hero-content {
@@ -26,51 +27,49 @@ body {
 }
 
 .accent-label {
-  color: #ff4ecd;
+  color: #9aa0ff;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.8rem;
 }
 
 h1 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.8rem;
   margin: 25px 0;
-  background: linear-gradient(90deg, #ffffff, #8be9ff);
+  background: linear-gradient(90deg, #ffffff, #c7c7d9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  color: #cfd3ff;
+  font-size: 1.2rem;
+  color: #cfd1e6;
   margin-bottom: 50px;
 }
 
 .cta-button {
   display: inline-block;
-  padding: 18px 40px;
+  padding: 16px 36px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #00f0ff, #7cff6b);
+  background: #ffffff;
   color: #000;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
-  font-family: 'Outfit', sans-serif;
-  box-shadow: 0 15px 40px rgba(0, 240, 255, 0.5);
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .cta-button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 60px rgba(0, 240, 255, 0.8);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255,255,255,0.25);
 }
 
-/* ---------------- NAV ---------------- */
+/* ---------- NAV ---------- */
 
 .sticky-nav {
   position: sticky;
-  top: 20px;
+  top: 16px;
   display: flex;
   justify-content: center;
   gap: 14px;
@@ -89,13 +88,13 @@ h1 {
   transition: all 0.25s;
 }
 
-.sticky-nav a:hover {
-  background: #00f0ff;
-  color: #000;
-  box-shadow: 0 0 25px rgba(0,240,255,0.7);
-}
+.nav-util:hover { background: #4f6cff; }
+.nav-kant:hover { background: #7a3cff; }
+.nav-subj:hover { background: #2f8f6b; }
+.nav-psych:hover { background: #c48a2a; color: #000; }
+.nav-defense:hover { background: #b5b5c7; color: #000; }
 
-/* ---------------- MAIN STACK ---------------- */
+/* ---------- MAIN STACK ---------- */
 
 .stack {
   max-width: 900px;
@@ -103,86 +102,76 @@ h1 {
   padding: 120px 20px;
 }
 
-/* ---------------- CARDS ---------------- */
+/* ---------- CARDS ---------- */
 
 .card {
-  border-radius: 40px;
+  position: relative;
+  border-radius: 36px;
   padding: 70px;
   margin-bottom: 120px;
-  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.04);
   box-shadow: 0 40px 90px rgba(0,0,0,0.6);
-  position: relative;
 }
 
-.card h2 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 2.8rem;
-  margin-bottom: 10px;
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  border-radius: 36px 0 0 36px;
 }
 
 .tag {
   font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   opacity: 0.85;
+}
+
+.card h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.6rem;
+  margin: 12px 0;
 }
 
 .citation {
   opacity: 0.7;
   font-style: italic;
-  margin: 15px 0 35px;
+  margin-bottom: 30px;
 }
 
-/* ---------------- COLOR SECTIONS ---------------- */
+/* ---------- SECTION COLORS ---------- */
 
-.utilitarianism {
-  background: linear-gradient(135deg, #0047ff, #00d4ff);
-}
+.utilitarianism::before { background: #4f6cff; }
+.kant::before { background: #7a3cff; }
+.subjectivism::before { background: #2f8f6b; }
+.psychology::before { background: #c48a2a; }
+.defense::before { background: #b5b5c7; }
 
-.kant {
-  background: linear-gradient(135deg, #7b2cff, #ff4ecd);
-}
-
-.subjectivism {
-  background: linear-gradient(135deg, #00c896, #7cff6b);
-}
-
-.psychology {
-  background: linear-gradient(135deg, #ff9f1c, #ff4ecd);
-}
-
-.defense {
-  background: linear-gradient(135deg, #ffffff, #d4d4ff);
-  color: #000;
-}
-
-.defense .citation,
-.defense p {
-  color: #111;
-}
-
-/* ---------------- VERDICT ---------------- */
+/* ---------- VERDICT ---------- */
 
 .verdict-section {
-  border-radius: 50px;
-  padding: 100px 60px;
   text-align: center;
-  background: linear-gradient(135deg, #ff4ecd, #7b2cff);
-  box-shadow: 0 40px 90px rgba(255,78,205,0.6);
+  padding: 100px 60px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.06);
 }
 
 .verdict-section h2 {
-  font-size: 3.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
 }
 
 .verdict-section p {
-  font-size: 1.25rem;
   max-width: 700px;
   margin: 20px auto;
+  font-size: 1.15rem;
 }
 
-/* ---------------- FOOTER ---------------- */
+/* ---------- FOOTER ---------- */
 
 footer {
   text-align: center;
@@ -190,16 +179,16 @@ footer {
   opacity: 0.6;
 }
 
-/* ---------------- MOBILE ---------------- */
+/* ---------- MOBILE ---------- */
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
   }
 
   .card {
     padding: 40px;
-    border-radius: 30px;
+    border-radius: 28px;
   }
 
   .card h2 {
