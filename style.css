@@ -1,98 +1,113 @@
-body {
-  margin: 0;
-  background: radial-gradient(circle at top, #1b1b2f, #0b0b12);
-  color: #f2f2f7;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1a1a2e, #0b0b12);
+  color: #f3f3f7;
+  font-family: "Inter", sans-serif;
+}
+
+/* ---------- HEADER ---------- */
 
 header {
+  padding: 120px 20px 80px;
   text-align: center;
-  padding: 100px 20px 60px;
-  background: linear-gradient(
-    180deg,
-    rgba(108, 99, 255, 0.25),
-    rgba(0, 0, 0, 0)
-  );
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-family: "Playfair Display", serif;
+  font-size: 3.4rem;
   margin-bottom: 12px;
-  letter-spacing: 0.5px;
 }
 
 .subtitle {
-  color: #c7c7e2;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  color: #c9c9e8;
 }
 
-/* ---------- NAV / BUTTONS ---------- */
+/* ---------- NAV ---------- */
 
 nav {
+  position: sticky;
+  top: 0;
+  background: rgba(10, 10, 20, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  padding: 20px;
+  gap: 18px;
+  padding: 18px;
+  z-index: 100;
 }
 
-button {
-  background: linear-gradient(135deg, #6c63ff, #8b82ff);
-  color: white;
-  border: none;
-  padding: 12px 18px;
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 8px 14px;
   border-radius: 999px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35);
-  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  background: rgba(255, 255, 255, 0.08);
+  transition: background 0.2s, transform 0.2s;
 }
 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(108, 99, 255, 0.5);
-  opacity: 0.95;
+nav a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
 }
 
-button.active {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.45);
-}
-
-/* ---------- MAIN CONTENT ---------- */
+/* ---------- SECTIONS ---------- */
 
 main {
   max-width: 900px;
   margin: auto;
-  padding: 40px 20px 80px;
 }
 
-.content {
-  display: none;
-  background: linear-gradient(180deg, #1f1f35, #151527);
-  padding: 40px;
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+.panel {
+  margin: 140px 20px;
+  padding: 60px;
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
 }
 
-.content h2 {
-  margin-top: 0;
-  color: #ffffff;
+.panel h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
 }
 
 .citation {
   font-size: 0.85rem;
-  color: #b9b9da;
-  margin-bottom: 18px;
+  opacity: 0.75;
+  margin-bottom: 25px;
+}
+
+/* ---------- COLOR THEMES ---------- */
+
+.utilitarianism {
+  background: linear-gradient(160deg, #2a2a72, #1f1f3a);
+}
+
+.kant {
+  background: linear-gradient(160deg, #3a1f3a, #241024);
+}
+
+.subjectivism {
+  background: linear-gradient(160deg, #1f3a3a, #102424);
+}
+
+.psychology {
+  background: linear-gradient(160deg, #3a2f1f, #241a10);
+}
+
+.defense {
+  background: linear-gradient(160deg, #2f3a1f, #1a2410);
 }
 
 /* ---------- FOOTER ---------- */
 
 footer {
   text-align: center;
-  padding: 40px 20px;
-  color: #8a8aa5;
-  font-size: 0.85rem;
+  padding: 80px 20px;
+  font-size: 0.9rem;
+  color: #9a9ab5;
 }
