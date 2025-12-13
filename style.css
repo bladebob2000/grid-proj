@@ -1,268 +1,205 @@
-/* --- RESET & VARIABLES --- */
 html {
   scroll-behavior: smooth;
 }
 
-:root {
-  /* Darker, richer background */
-  --bg-dark: #050511; 
-  --bg-panel: #0f1020;
-  
-  /* Vibrant Accents */
-  --cyan: #00f0ff;
-  --cyan-glow: rgba(0, 240, 255, 0.4);
-  --pink: #ff0055;
-  --text-main: #ffffff;
-  --text-muted: #b0b5c5;
-}
-
 body {
   margin: 0;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  /* The "Interesting" Body Font */
-  font-family: 'DM Sans', sans-serif; 
-  line-height: 1.6;
+  background: #050510;
+  color: #ffffff;
+  font-family: 'DM Sans', system-ui, sans-serif;
 }
 
-/* --- TYPOGRAPHY --- */
-h1, h2, h3 {
-  /* The Modern, Geometric Headline Font */
-  font-family: 'Outfit', sans-serif;
-  margin: 0;
-}
+/* ---------------- HERO ---------------- */
 
-/* --- HERO SECTION --- */
 .hero-section {
-  min-height: 90vh; /* Takes up most of the screen */
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 10%;
-  position: relative;
-  overflow: hidden;
-  /* Subtle gradient background */
-  background: radial-gradient(circle at top right, #1a1a3a, var(--bg-dark) 60%);
+  justify-content: center;
+  padding: 120px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #1a1aff, #050510 65%);
 }
 
 .hero-content {
-  max-width: 600px;
-  z-index: 2;
+  max-width: 800px;
 }
 
 .accent-label {
-  color: var(--pink);
-  font-weight: 700;
+  color: #ff4ecd;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-  margin-bottom: 20px;
-  display: inline-block;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 0.8rem;
 }
 
 h1 {
+  font-family: 'Outfit', sans-serif;
   font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: 25px;
-  background: linear-gradient(to right, #fff, #a0a0ff);
+  margin: 25px 0;
+  background: linear-gradient(90deg, #ffffff, #8be9ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-bottom: 40px;
-  max-width: 500px;
+  font-size: 1.25rem;
+  color: #cfd3ff;
+  margin-bottom: 50px;
 }
 
-/* Rounded Buttons */
 .cta-button {
   display: inline-block;
-  background-color: var(--cyan);
+  padding: 18px 40px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00f0ff, #7cff6b);
   color: #000;
-  padding: 16px 32px;
-  border-radius: 50px; /* Fully rounded pill shape */
   font-weight: 700;
   text-decoration: none;
   font-family: 'Outfit', sans-serif;
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 15px 40px rgba(0, 240, 255, 0.5);
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px var(--cyan-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 25px 60px rgba(0, 240, 255, 0.8);
 }
 
-/* Abstract Visual (The glowing orb on the right) */
-.hero-visual {
-  position: absolute;
-  right: 5%;
-  top: 20%;
-  width: 400px;
-  height: 400px;
-  z-index: 1;
-}
+/* ---------------- NAV ---------------- */
 
-.glowing-orb {
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.2), rgba(255, 0, 85, 0.1), transparent 70%);
-  border-radius: 50%;
-  filter: blur(40px);
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
-}
-
-/* --- NAVIGATION --- */
 .sticky-nav {
   position: sticky;
   top: 20px;
-  z-index: 100;
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 60px;
+  gap: 14px;
+  padding: 20px;
+  z-index: 10;
 }
 
 .sticky-nav a {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  color: var(--text-main);
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: white;
   text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 50px; /* Rounded Nav */
   font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s;
 }
 
 .sticky-nav a:hover {
-  background: var(--cyan);
+  background: #00f0ff;
   color: #000;
-  border-color: var(--cyan);
-  box-shadow: 0 0 15px var(--cyan-glow);
+  box-shadow: 0 0 25px rgba(0,240,255,0.7);
 }
 
-/* --- MAIN LAYOUT & CARDS --- */
-main {
+/* ---------------- MAIN STACK ---------------- */
+
+.stack {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px 100px;
+  margin: auto;
+  padding: 120px 20px;
 }
+
+/* ---------------- CARDS ---------------- */
 
 .card {
-  background-color: var(--bg-panel);
-  border-radius: 30px; /* Rounded corners for boxes */
-  padding: 60px;
-  margin-bottom: 60px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 40px;
+  padding: 70px;
+  margin-bottom: 120px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.6);
   position: relative;
-  overflow: hidden;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--cyan);
-}
-
-/* Tag style inside card */
-.tag {
-  color: var(--cyan);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-  display: block;
 }
 
 .card h2 {
-  font-size: 2.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.8rem;
   margin-bottom: 10px;
-  color: white;
+}
+
+.tag {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.85;
 }
 
 .citation {
-  color: var(--text-muted);
+  opacity: 0.7;
   font-style: italic;
-  font-size: 0.9rem;
-  margin-bottom: 30px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding-bottom: 20px;
+  margin: 15px 0 35px;
 }
 
-.callout-box {
-  background: rgba(0, 240, 255, 0.1);
-  border-left: 4px solid var(--cyan);
-  padding: 20px;
-  border-radius: 0 16px 16px 0;
-  margin: 20px 0;
-  color: #d0faff;
+/* ---------------- COLOR SECTIONS ---------------- */
+
+.utilitarianism {
+  background: linear-gradient(135deg, #0047ff, #00d4ff);
 }
 
-/* --- VERDICT SECTION --- */
+.kant {
+  background: linear-gradient(135deg, #7b2cff, #ff4ecd);
+}
+
+.subjectivism {
+  background: linear-gradient(135deg, #00c896, #7cff6b);
+}
+
+.psychology {
+  background: linear-gradient(135deg, #ff9f1c, #ff4ecd);
+}
+
+.defense {
+  background: linear-gradient(135deg, #ffffff, #d4d4ff);
+  color: #000;
+}
+
+.defense .citation,
+.defense p {
+  color: #111;
+}
+
+/* ---------------- VERDICT ---------------- */
+
 .verdict-section {
+  border-radius: 50px;
+  padding: 100px 60px;
   text-align: center;
-  margin-top: 100px;
-  padding: 80px 40px;
-  background: linear-gradient(180deg, rgba(255, 0, 85, 0.05), rgba(0,0,0,0));
-  border-radius: 40px;
-  border: 1px solid rgba(255, 0, 85, 0.2);
+  background: linear-gradient(135deg, #ff4ecd, #7b2cff);
+  box-shadow: 0 40px 90px rgba(255,78,205,0.6);
 }
 
 .verdict-section h2 {
-  font-size: 3rem;
-  margin-bottom: 30px;
-  color: var(--pink);
+  font-size: 3.5rem;
 }
 
 .verdict-section p {
+  font-size: 1.25rem;
   max-width: 700px;
-  margin: 0 auto 20px;
-  font-size: 1.15rem;
+  margin: 20px auto;
 }
 
-/* --- FOOTER --- */
+/* ---------------- FOOTER ---------------- */
+
 footer {
   text-align: center;
-  padding: 40px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  padding: 60px;
+  opacity: 0.6;
 }
 
-/* --- RESPONSIVE --- */
+/* ---------------- MOBILE ---------------- */
+
 @media (max-width: 768px) {
-  .hero-section {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 100px 20px;
-  }
-  
-  .hero-visual {
-    display: none; /* Hide visual on mobile to save space */
-  }
-
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
   }
 
-  .sticky-nav {
-    flex-wrap: wrap;
-    top: 10px;
-  }
-  
   .card {
-    padding: 30px;
-    border-radius: 20px;
+    padding: 40px;
+    border-radius: 30px;
   }
 
   .card h2 {
