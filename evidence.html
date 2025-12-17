@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kant — Dark Humor Ethics</title>
+  <title>Evidence · Dark Humor</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,33 +15,118 @@
 <body>
 
   <header class="topbar">
-    <div class="brand">
+    <a class="brand" href="index.html">
       <span class="brandDot"></span>
-      <span class="brandText">Dark Humor Ethics</span>
-    </div>
+      <span class="brandText">Great Ideas: Dark Humor</span>
+    </a>
+
     <nav class="topnav">
-      <a href="index.html#kant" class="navLink nav-kant">Back to Site</a>
+      <a class="navLink" href="index.html">Home</a>
+      <a class="navLink" href="lenses.html">Ethical Lenses</a>
+      <a class="navLink active" href="evidence.html">Evidence</a>
+      <a class="navLink" href="verdict.html">Our Answer</a>
+      <a class="navLink nav-quiz" href="quiz.html">Quiz</a>
     </nav>
   </header>
 
-  <main class="pageShell">
-    <section class="detailCard" style="--accent: var(--kant);">
-      <div class="backRow">
-        <a class="backLink" href="index.html#kant">← Return</a>
-      </div>
-
-      <h1 class="detailTitle">Kant’s Moral Philosophy</h1>
-      <p class="detailMeta">Johnson, Robert, and Adam Cureton. “Kant’s Moral Philosophy.” Stanford Encyclopedia of Philosophy, Stanford University, 2 Oct. 2025, plato.stanford.edu/entries/kant-moral/.</p>
-
-      <p>
-        This source provides a detailed overview of Kant’s moral philosophy, including the Categorical Imperative, duties of right and virtue, and how moral principles relate to human autonomy, rationality, and dignity. Kant emphasizes treating people as free, valuable individuals who can make their own choices, and he argues that we should act according to maxims that can be universalized. He also differentiates between strict moral duties, such as not stealing or lying, and more flexible duties, like helping others, which allow some personal judgement in our actions. While Kant doesn’t directly discuss dark humor, his ideas can help us consider when it might be morally permissible. For example, a joke that treats someone as an object for laughter would go against Kantian ethics because it disrespects their autonomy and dignity. However, humor that doesn’t harm anyone directly or treats everyone fairly could align with Kant’s principles since it follows a maxim that could potentially be universalized. This source is valuable because it shows that morality isn’t only about outcomes, but also about the intentions behind actions and whether they respect the freedom and value of others. Applying this to dark humor could help us explore the conditions under which it could be acceptable: when it doesn’t exploit or demean others and could be viewed as ethical in a broader sense.
+  <section class="pageHero">
+    <div class="pageHeroInner reveal">
+      <p class="pageLabel">Page 2</p>
+      <h1 class="pageTitle">Evidence</h1>
+      <p class="pageSub">
+        Beyond philosophy: what research suggests about dark humor’s effects,
+        and why some people defend it as a coping mechanism.
       </p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section class="splitCard reveal" style="--accent: var(--psych);">
+      <div class="splitInner">
+        <div class="splitText">
+          <p class="kicker">Psychology</p>
+          <h2 class="sectionTitle">Dark humor can lower moral “alarm bells”</h2>
+          <p class="leadQuestion"><em>What if a joke makes harm feel less serious?</em></p>
+
+          <ul class="bullets">
+            <li>Research suggests dark humor can reduce emotional resistance to disturbing choices.</li>
+            <li>This can help people cope under pressure.</li>
+            <li>But it may also make moral violations feel more “normal” over time.</li>
+          </ul>
+
+          <p class="miniConclusion">
+            The ethical risk: <strong>coping can turn into desensitization.</strong>
+          </p>
+        </div>
+
+        <div class="splitVisual">
+          <div class="visualSlot">Optional visual: “emotion vs judgment”</div>
+        </div>
+      </div>
     </section>
+
+    <section class="splitCard reverse reveal" style="--accent: var(--def);">
+      <div class="splitInner">
+        <div class="splitText">
+          <p class="kicker">Defense</p>
+          <h2 class="sectionTitle">Dark humor as survival language</h2>
+          <p class="leadQuestion"><em>Relief isn’t the same as cruelty.</em></p>
+
+          <ul class="bullets">
+            <li>In high-stress work (war, emergencies, trauma), humor can keep people functional.</li>
+            <li>It can help people face harsh realities without collapsing emotionally.</li>
+            <li>It becomes unethical when it “punches down” or dehumanizes real victims.</li>
+          </ul>
+
+          <p class="miniConclusion">
+            The strongest defense: <strong>dark humor can protect people from breaking.</strong>
+          </p>
+        </div>
+
+        <div class="splitVisual">
+          <div class="visualSlot">Optional visual: “coping / resilience”</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="nextStep reveal">
+      <div class="nextStepInner">
+        <h2 class="nextStepTitle">So… what do we conclude?</h2>
+        <p class="nextStepText">
+          Our answer combines the lenses and the evidence: permissible only when it lifts the mood in serious situations
+          and does not harm or demean others.
+        </p>
+        <a class="buttonPrimary" href="verdict.html">Go to Our Answer →</a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <p>Grid Project · 2025</p>
+  <footer class="footer">
+    <p>Great Ideas Project · 2025</p>
   </footer>
+
+  <script>
+    var revealItems = document.querySelectorAll(".reveal");
+
+    var observer = new IntersectionObserver(
+      function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var entry = entries[i];
+          if (entry.isIntersecting) {
+            entry.target.classList.add("inView");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    for (var j = 0; j < revealItems.length; j++) {
+      observer.observe(revealItems[j]);
+    }
+  </script>
 
 </body>
 </html>
