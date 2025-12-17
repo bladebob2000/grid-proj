@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subjectivism — Dark Humor Ethics</title>
+  <title>Quiz · Dark Humor</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,33 +15,305 @@
 <body>
 
   <header class="topbar">
-    <div class="brand">
+    <a class="brand" href="index.html">
       <span class="brandDot"></span>
-      <span class="brandText">Dark Humor Ethics</span>
-    </div>
+      <span class="brandText">Great Ideas: Dark Humor</span>
+    </a>
+
     <nav class="topnav">
-      <a href="index.html#subjectivism" class="navLink nav-subj">Back to Site</a>
+      <a class="navLink" href="index.html">Home</a>
+      <a class="navLink" href="lenses.html">Ethical Lenses</a>
+      <a class="navLink" href="evidence.html">Evidence</a>
+      <a class="navLink" href="verdict.html">Our Answer</a>
+      <a class="navLink nav-quiz active" href="quiz.html">Quiz</a>
     </nav>
   </header>
 
-  <main class="pageShell">
-    <section class="detailCard" style="--accent: var(--subj);">
-      <div class="backRow">
-        <a class="backLink" href="index.html#subjectivism">← Return</a>
+  <section class="pageHero">
+    <div class="pageHeroInner reveal">
+      <p class="pageLabel">Interactive</p>
+      <h1 class="pageTitle">The Quiz</h1>
+      <p class="pageSub">
+        Part 1: which ethical lens sounds most like you?<br>
+        Part 2: is a dark joke morally permissible using our final answer?
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section class="quizGrid">
+
+      <div class="quizCard reveal">
+        <h2 class="quizTitle">Part 1 — Your Ethical Lens</h2>
+        <p class="quizSub">
+          Answer based on what you believe is most important in moral judgment.
+        </p>
+
+        <div class="quizPanel" id="lensPanel">
+          <p class="quizPrompt" id="lensPrompt">Click start to begin.</p>
+
+          <div class="quizButtons">
+            <button class="choiceButton" id="lensYes" disabled>Yes</button>
+            <button class="choiceButton" id="lensNo" disabled>No</button>
+          </div>
+
+          <div class="quizMeta">
+            <span id="lensProgress">0 / 6</span>
+            <button class="smallButton" id="lensStart">Start</button>
+          </div>
+
+          <div class="quizResult hidden" id="lensResult">
+            <h3 class="resultTitle" id="lensResultTitle">Result</h3>
+            <p class="resultText" id="lensResultText"></p>
+          </div>
+        </div>
       </div>
 
-      <h1 class="detailTitle">Subjectivism in Ethics</h1>
-      <p class="detailMeta">Rachels, James. “Subjectivism in Ethics.” Purdue University, web.ics.purdue.edu/~drkelly/RachelsSubjectivismInEthics1993.pdf.</p>
+      <div class="quizCard reveal">
+        <h2 class="quizTitle">Part 2 — Is This Dark Joke Permissible?</h2>
+        <p class="quizSub">
+          Think of a dark joke (or scenario) you’re evaluating. Answer based on how it’s being used.
+        </p>
 
-      <p>
-        In Subjectivism in Ethics, James Rachels explains Ethical Subjectivism, or the idea that moral judgements are based on personal feelings rather than objective facts. Rachels shows how people often disagree strongly about moral issues, such as homosexuality, and uses this to argue that subjectivists believe these disagreements are really just differences in attitude. This theory suggests that calling something “wrong” doesn’t describe a real moral quality in the world, but it just reflects how an individual feels about it themselves. When applied to dark humor, Ethical Subjectivism would say that a joke is only moral or not depending on how someone personally reacts to it. This means dark humor could be morally permissible for some people if they feel that it’s fine, even if others disapprove of it or feel negative about it. However, Rachels also points out weaknesses in subjectivism, such as its inability to explain real moral disagreement and why moral judgements need reasoning. These criticisms suggest that relying only on personal feelings isn’t enough to decide whether dark humor is acceptable, especially when it affects others. Overall, this source is useful because it shows how personal reactions shape moral judgement and it highlights the limitations of using only feelings to decide if dark humor is morally permissible.
-      </p>
+        <div class="quizPanel" id="permPanel">
+          <p class="quizPrompt" id="permPrompt">Click start to begin.</p>
+
+          <div class="quizButtons">
+            <button class="choiceButton" id="permYes" disabled>Yes</button>
+            <button class="choiceButton" id="permNo" disabled>No</button>
+          </div>
+
+          <div class="quizMeta">
+            <span id="permProgress">0 / 5</span>
+            <button class="smallButton" id="permStart">Start</button>
+          </div>
+
+          <div class="quizResult hidden" id="permResult">
+            <h3 class="resultTitle" id="permResultTitle">Result</h3>
+            <p class="resultText" id="permResultText"></p>
+          </div>
+        </div>
+      </div>
+
     </section>
+
   </main>
 
-  <footer>
-    <p>Grid Project · 2025</p>
+  <footer class="footer">
+    <p>Great Ideas Project · 2025</p>
   </footer>
+
+  <script>
+    var lensQuestions = [
+      { text: "Outcomes matter more than intentions when judging right vs wrong.", lens: "utilitarian" },
+      { text: "Some actions are wrong even if they lead to good results.", lens: "kantian" },
+      { text: "Moral judgments are mostly personal reactions, not objective facts.", lens: "subjectivist" },
+      { text: "If a joke makes most people feel better, it can be morally acceptable.", lens: "utilitarian" },
+      { text: "A joke is wrong if it uses someone’s pain as entertainment.", lens: "kantian" },
+      { text: "If someone feels a joke is fine, then it’s fine for them.", lens: "subjectivist" }
+    ];
+
+    var permQuestions = [
+      { text: "Is the joke being used in a serious, stressful, or emotionally difficult situation?", required: true },
+      { text: "Is the intent to lift the mood or help people cope (not to insult or show off)?", required: true },
+      { text: "Does it avoid targeting a vulnerable person or group?", required: true },
+      { text: "Would it still feel acceptable if the subject of the joke were present?", required: true },
+      { text: "Does it reduce suffering rather than normalize or dismiss it?", required: false }
+    ];
+
+    var lensIndex = 0;
+    var permIndex = 0;
+
+    var lensScores = { utilitarian: 0, kantian: 0, subjectivist: 0 };
+    var permAnswers = [];
+
+    var lensPrompt = document.getElementById("lensPrompt");
+    var lensProgress = document.getElementById("lensProgress");
+    var lensYes = document.getElementById("lensYes");
+    var lensNo = document.getElementById("lensNo");
+    var lensStart = document.getElementById("lensStart");
+    var lensResult = document.getElementById("lensResult");
+    var lensResultTitle = document.getElementById("lensResultTitle");
+    var lensResultText = document.getElementById("lensResultText");
+
+    var permPrompt = document.getElementById("permPrompt");
+    var permProgress = document.getElementById("permProgress");
+    var permYes = document.getElementById("permYes");
+    var permNo = document.getElementById("permNo");
+    var permStart = document.getElementById("permStart");
+    var permResult = document.getElementById("permResult");
+    var permResultTitle = document.getElementById("permResultTitle");
+    var permResultText = document.getElementById("permResultText");
+
+    function updateLensUI() {
+      lensProgress.textContent = lensIndex + " / " + lensQuestions.length;
+
+      if (lensIndex >= lensQuestions.length) {
+        lensYes.disabled = true;
+        lensNo.disabled = true;
+
+        var utilScore = lensScores.utilitarian;
+        var kantScore = lensScores.kantian;
+        var subjScore = lensScores.subjectivist;
+
+        var maxScore = utilScore;
+        if (kantScore > maxScore) {
+          maxScore = kantScore;
+        }
+        if (subjScore > maxScore) {
+          maxScore = subjScore;
+        }
+
+        var topLenses = [];
+        if (utilScore === maxScore) {
+          topLenses.push("Utilitarian");
+        }
+        if (kantScore === maxScore) {
+          topLenses.push("Kantian");
+        }
+        if (subjScore === maxScore) {
+          topLenses.push("Subjectivist");
+        }
+
+        lensResult.classList.remove("hidden");
+
+        if (topLenses.length === 1) {
+          lensResultTitle.textContent = "You lean " + topLenses[0];
+        } else {
+          lensResultTitle.textContent = "You’re a mix";
+        }
+
+        lensResultText.textContent =
+          "Based on your answers, your closest match is: " + topLenses.join(" + ") +
+          ". This isn’t a label forever — it just shows what you prioritize when judging moral questions.";
+
+        lensPrompt.textContent = "Finished. Scroll down or start Part 2.";
+        return;
+      }
+
+      lensPrompt.textContent = lensQuestions[lensIndex].text;
+      lensYes.disabled = false;
+      lensNo.disabled = false;
+    }
+
+    function updatePermUI() {
+      permProgress.textContent = permIndex + " / " + permQuestions.length;
+
+      if (permIndex >= permQuestions.length) {
+        permYes.disabled = true;
+        permNo.disabled = true;
+
+        var requiredPass = true;
+
+        for (var i = 0; i < permQuestions.length; i++) {
+          if (permQuestions[i].required === true) {
+            if (permAnswers[i] !== true) {
+              requiredPass = false;
+            }
+          }
+        }
+
+        var confidenceBoost = false;
+        if (permAnswers.length === permQuestions.length) {
+          if (permAnswers[4] === true) {
+            confidenceBoost = true;
+          }
+        }
+
+        permResult.classList.remove("hidden");
+
+        if (requiredPass === true) {
+          permResultTitle.textContent = "Morally Permissible";
+          if (confidenceBoost === true) {
+            permResultText.textContent =
+              "Based on our conclusion, this is morally permissible: it’s used to lift the mood in a serious situation and it does not harm or demean someone. Your answers also suggest it reduces suffering rather than dismissing it.";
+          } else {
+            permResultText.textContent =
+              "Based on our conclusion, this is morally permissible: it’s used to lift the mood in a serious situation and it does not harm or demean someone.";
+          }
+        } else {
+          permResultTitle.textContent = "Not Morally Permissible";
+          permResultText.textContent =
+            "Based on our conclusion, this is not morally permissible. One or more answers suggest it risks harming, demeaning, exploiting, or targeting someone rather than functioning as respectful coping.";
+        }
+
+        permPrompt.textContent = "Finished. You can refresh the page to try again.";
+        return;
+      }
+
+      permPrompt.textContent = permQuestions[permIndex].text;
+      permYes.disabled = false;
+      permNo.disabled = false;
+    }
+
+    lensStart.addEventListener("click", function() {
+      lensStart.disabled = true;
+
+      lensIndex = 0;
+      lensScores.utilitarian = 0;
+      lensScores.kantian = 0;
+      lensScores.subjectivist = 0;
+
+      lensResult.classList.add("hidden");
+      updateLensUI();
+    });
+
+    lensYes.addEventListener("click", function() {
+      var lensKey = lensQuestions[lensIndex].lens;
+      lensScores[lensKey] = lensScores[lensKey] + 1;
+      lensIndex = lensIndex + 1;
+      updateLensUI();
+    });
+
+    lensNo.addEventListener("click", function() {
+      lensIndex = lensIndex + 1;
+      updateLensUI();
+    });
+
+    permStart.addEventListener("click", function() {
+      permStart.disabled = true;
+
+      permIndex = 0;
+      permAnswers = [];
+
+      permResult.classList.add("hidden");
+      updatePermUI();
+    });
+
+    permYes.addEventListener("click", function() {
+      permAnswers.push(true);
+      permIndex = permIndex + 1;
+      updatePermUI();
+    });
+
+    permNo.addEventListener("click", function() {
+      permAnswers.push(false);
+      permIndex = permIndex + 1;
+      updatePermUI();
+    });
+  </script>
+
+  <script>
+    var revealItems = document.querySelectorAll(".reveal");
+
+    var observer = new IntersectionObserver(
+      function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var entry = entries[i];
+          if (entry.isIntersecting) {
+            entry.target.classList.add("inView");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    for (var j = 0; j < revealItems.length; j++) {
+      observer.observe(revealItems[j]);
+    }
+  </script>
 
 </body>
 </html>
