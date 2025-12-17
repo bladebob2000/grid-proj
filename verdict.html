@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Answer · Dark Humor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brandDot"></span>
+      <span class="brandText">Great Ideas: Dark Humor</span>
+    </a>
+
+    <nav class="topnav">
+      <a class="navLink" href="index.html">Home</a>
+      <a class="navLink" href="lenses.html">Ethical Lenses</a>
+      <a class="navLink" href="evidence.html">Evidence</a>
+      <a class="navLink active" href="verdict.html">Our Answer</a>
+      <a class="navLink nav-quiz" href="quiz.html">Quiz</a>
+    </nav>
+  </header>
+
+  <section class="pageHero">
+    <div class="pageHeroInner reveal">
+      <p class="pageLabel">Page 3</p>
+      <h1 class="pageTitle">Our Answer</h1>
+      <p class="pageSub">
+        Dark humor is not automatically good or bad. It becomes morally permissible only under specific conditions.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section class="verdictCard reveal">
+      <p class="verdictKicker">Final Position</p>
+      <h2 class="verdictTitle">Dark humor is morally permissible only if…</h2>
+
+      <div class="verdictRules">
+        <div class="rule">
+          <div class="ruleNumber">1</div>
+          <div class="ruleBody">
+            <h3 class="ruleTitle">It is used to lift the mood in a serious or stressful situation</h3>
+            <p class="ruleText">
+              In hard moments, humor can be a coping tool. It can reduce fear, tension, and emotional overload.
+              That’s different from joking for shock-value.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule">
+          <div class="ruleNumber">2</div>
+          <div class="ruleBody">
+            <h3 class="ruleTitle">It does not harm, demean, or exploit someone</h3>
+            <p class="ruleText">
+              If the joke treats real people as objects for entertainment, it crosses a moral line.
+              Humor should not “punch down” or turn suffering into a target.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="verdictReasoning">
+        <h3 class="reasonTitle">Why this makes sense across the project</h3>
+        <ul class="bullets soft">
+          <li><strong>Utilitarianism:</strong> relief can be good, but harm can outweigh it.</li>
+          <li><strong>Kant:</strong> dignity matters — don’t use people as a means to laugh.</li>
+          <li><strong>Psychology:</strong> coping is helpful, but desensitization is dangerous.</li>
+        </ul>
+
+        <p class="finalLine">
+          <strong>In short:</strong> dark humor is ethical when it protects humanity — not when it erodes it.
+        </p>
+
+        <a class="buttonPrimary" href="quiz.html">Test it with the Quiz →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Great Ideas Project · 2025</p>
+  </footer>
+
+  <script>
+    var revealItems = document.querySelectorAll(".reveal");
+
+    var observer = new IntersectionObserver(
+      function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var entry = entries[i];
+          if (entry.isIntersecting) {
+            entry.target.classList.add("inView");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    for (var j = 0; j < revealItems.length; j++) {
+      observer.observe(revealItems[j]);
+    }
+  </script>
+
+</body>
+</html>
 
