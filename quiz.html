@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="page-quiz">
 
   <header class="topbar">
     <a class="brand" href="index.html">
@@ -34,8 +34,7 @@
       <p class="pageLabel">Interactive</p>
       <h1 class="pageTitle">The Quiz</h1>
       <p class="pageSub">
-        Part 1: which ethical lens sounds most like you?<br>
-        Part 2: is a dark joke morally permissible using our final answer?
+        Part 1 finds your ethical lens. Part 2 checks whether a dark joke is morally permissible based on our conclusion.
       </p>
     </div>
   </section>
@@ -45,22 +44,22 @@
     <section class="quizGrid">
 
       <div class="quizCard reveal">
-        <h2 class="quizTitle">Part 1 — Your Ethical Lens</h2>
+        <h2 class="quizTitle">Part 1: Your ethical lens</h2>
         <p class="quizSub">
-          Answer based on what you believe is most important in moral judgment.
+          Answer based on what you think matters most when judging right and wrong.
         </p>
 
         <div class="quizPanel" id="lensPanel">
           <p class="quizPrompt" id="lensPrompt">Click start to begin.</p>
 
           <div class="quizButtons">
-            <button class="choiceButton" id="lensYes" disabled>Yes</button>
-            <button class="choiceButton" id="lensNo" disabled>No</button>
+            <button class="choiceButton accentHover accent-quiz" id="lensYes" disabled>Yes</button>
+            <button class="choiceButton accentHover accent-quiz" id="lensNo" disabled>No</button>
           </div>
 
           <div class="quizMeta">
             <span id="lensProgress">0 / 6</span>
-            <button class="smallButton" id="lensStart">Start</button>
+            <button class="smallButton accentHover accent-quiz" id="lensStart">Start</button>
           </div>
 
           <div class="quizResult hidden" id="lensResult">
@@ -71,22 +70,22 @@
       </div>
 
       <div class="quizCard reveal">
-        <h2 class="quizTitle">Part 2 — Is This Dark Joke Permissible?</h2>
+        <h2 class="quizTitle">Part 2: Is a dark joke morally permissible?</h2>
         <p class="quizSub">
-          Think of a dark joke (or scenario) you’re evaluating. Answer based on how it’s being used.
+          Think of a dark joke or scenario. Answer based on how the joke is being used.
         </p>
 
         <div class="quizPanel" id="permPanel">
           <p class="quizPrompt" id="permPrompt">Click start to begin.</p>
 
           <div class="quizButtons">
-            <button class="choiceButton" id="permYes" disabled>Yes</button>
-            <button class="choiceButton" id="permNo" disabled>No</button>
+            <button class="choiceButton accentHover accent-quiz" id="permYes" disabled>Yes</button>
+            <button class="choiceButton accentHover accent-quiz" id="permNo" disabled>No</button>
           </div>
 
           <div class="quizMeta">
             <span id="permProgress">0 / 5</span>
-            <button class="smallButton" id="permStart">Start</button>
+            <button class="smallButton accentHover accent-quiz" id="permStart">Start</button>
           </div>
 
           <div class="quizResult hidden" id="permResult">
@@ -106,20 +105,20 @@
 
   <script>
     var lensQuestions = [
-      { text: "Outcomes matter more than intentions when judging right vs wrong.", lens: "utilitarian" },
+      { text: "Outcomes matter more than intentions when judging right and wrong.", lens: "utilitarian" },
       { text: "Some actions are wrong even if they lead to good results.", lens: "kantian" },
-      { text: "Moral judgments are mostly personal reactions, not objective facts.", lens: "subjectivist" },
-      { text: "If a joke makes most people feel better, it can be morally acceptable.", lens: "utilitarian" },
+      { text: "Moral judgments are mostly personal reactions, not objective rules.", lens: "subjectivist" },
+      { text: "If a joke helps most people feel better, it can be morally acceptable.", lens: "utilitarian" },
       { text: "A joke is wrong if it uses someone’s pain as entertainment.", lens: "kantian" },
-      { text: "If someone feels a joke is fine, then it’s fine for them.", lens: "subjectivist" }
+      { text: "If someone feels a joke is fine, then it is fine for them.", lens: "subjectivist" }
     ];
 
     var permQuestions = [
       { text: "Is the joke being used in a serious, stressful, or emotionally difficult situation?", required: true },
-      { text: "Is the intent to lift the mood or help people cope (not to insult or show off)?", required: true },
+      { text: "Is the intent to lift the mood or help people cope, not to insult or show off?", required: true },
       { text: "Does it avoid targeting a vulnerable person or group?", required: true },
       { text: "Would it still feel acceptable if the subject of the joke were present?", required: true },
-      { text: "Does it reduce suffering rather than normalize or dismiss it?", required: false }
+      { text: "Does it reduce suffering instead of dismissing it?", required: false }
     ];
 
     var lensIndex = 0;
@@ -158,37 +157,27 @@
         var subjScore = lensScores.subjectivist;
 
         var maxScore = utilScore;
-        if (kantScore > maxScore) {
-          maxScore = kantScore;
-        }
-        if (subjScore > maxScore) {
-          maxScore = subjScore;
-        }
+        if (kantScore > maxScore) { maxScore = kantScore; }
+        if (subjScore > maxScore) { maxScore = subjScore; }
 
         var topLenses = [];
-        if (utilScore === maxScore) {
-          topLenses.push("Utilitarian");
-        }
-        if (kantScore === maxScore) {
-          topLenses.push("Kantian");
-        }
-        if (subjScore === maxScore) {
-          topLenses.push("Subjectivist");
-        }
+        if (utilScore === maxScore) { topLenses.push("Utilitarian"); }
+        if (kantScore === maxScore) { topLenses.push("Kantian"); }
+        if (subjScore === maxScore) { topLenses.push("Subjectivist"); }
 
         lensResult.classList.remove("hidden");
 
         if (topLenses.length === 1) {
           lensResultTitle.textContent = "You lean " + topLenses[0];
         } else {
-          lensResultTitle.textContent = "You’re a mix";
+          lensResultTitle.textContent = "You are a mix";
         }
 
         lensResultText.textContent =
           "Based on your answers, your closest match is: " + topLenses.join(" + ") +
-          ". This isn’t a label forever — it just shows what you prioritize when judging moral questions.";
+          ". This is not a permanent label. It just shows what you prioritize when judging moral questions.";
 
-        lensPrompt.textContent = "Finished. Scroll down or start Part 2.";
+        lensPrompt.textContent = "Finished. You can start Part 2 now.";
         return;
       }
 
@@ -205,7 +194,6 @@
         permNo.disabled = true;
 
         var requiredPass = true;
-
         for (var i = 0; i < permQuestions.length; i++) {
           if (permQuestions[i].required === true) {
             if (permAnswers[i] !== true) {
@@ -216,9 +204,7 @@
 
         var confidenceBoost = false;
         if (permAnswers.length === permQuestions.length) {
-          if (permAnswers[4] === true) {
-            confidenceBoost = true;
-          }
+          if (permAnswers[4] === true) { confidenceBoost = true; }
         }
 
         permResult.classList.remove("hidden");
@@ -227,18 +213,18 @@
           permResultTitle.textContent = "Morally Permissible";
           if (confidenceBoost === true) {
             permResultText.textContent =
-              "Based on our conclusion, this is morally permissible: it’s used to lift the mood in a serious situation and it does not harm or demean someone. Your answers also suggest it reduces suffering rather than dismissing it.";
+              "Based on your answers, this use of dark humor is morally permissible. It is used to relieve stress in a serious situation and it does not harm or demean others. Your answers also suggest it reduces suffering instead of dismissing it.";
           } else {
             permResultText.textContent =
-              "Based on our conclusion, this is morally permissible: it’s used to lift the mood in a serious situation and it does not harm or demean someone.";
+              "Based on your answers, this use of dark humor is morally permissible. It is used to relieve stress in a serious situation and it does not harm or demean others.";
           }
         } else {
           permResultTitle.textContent = "Not Morally Permissible";
           permResultText.textContent =
-            "Based on our conclusion, this is not morally permissible. One or more answers suggest it risks harming, demeaning, exploiting, or targeting someone rather than functioning as respectful coping.";
+            "Based on your answers, this use of dark humor is not morally permissible. One or more answers suggest it risks harming, demeaning, exploiting, or targeting someone instead of functioning as respectful coping.";
         }
 
-        permPrompt.textContent = "Finished. You can refresh the page to try again.";
+        permPrompt.textContent = "Finished. Refresh the page if you want to try again.";
         return;
       }
 
